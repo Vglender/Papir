@@ -1,0 +1,19 @@
+{% extends 'calc/base_calc_template.html' %}
+
+{% block title %}
+Давайте просчитаем стоимость {{ block.super }}<br> <br>
+{% endblock %}
+
+{% block content %}
+    <h3 class = "mb-4"> Расчет стоимости </h3>
+    <form action="{% url 'order_pre_url' % }" method="post">
+        {% csrf_token %}
+        {{ form.kind_board }}<br><br>
+        {{ form.thikness }}<br><br>
+        {{ form.lenght }}<br><br>
+        {{ form.widht }}<br><br>
+        {{ form.quantity }}<br><br>
+        <button type="submit"> Расчитать стоимость </button>
+    </form>
+{% endblock %}
+
